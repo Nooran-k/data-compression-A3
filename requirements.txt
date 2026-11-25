@@ -1,0 +1,5 @@
+numpy
+pillow
+
+# Install all required libraries using:
+# pip install -r requirements.txt
