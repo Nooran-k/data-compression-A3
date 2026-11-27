@@ -61,12 +61,3 @@ def compress_image(image_path, block_size, codebook_size,
         "compressed_path": compressed_path,
         "compression_ratio": ratio
     }
-
-
-if __name__ == "__main__":
-    image_path = input("Image path: ")
-    block_height = int(input("Block height: "))
-    block_width = int(input("Block width: "))
-    codebook_size = int(input("Number of codebook vectors: "))
-
-    compress_image(image_path, (block_height, block_width), codebook_size)
