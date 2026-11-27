@@ -46,9 +46,11 @@ def reconstruct_image(indices, codebook, padded_shape, block_size):
 
     selected_blocks = codebook[indices]
 
-    image = selected_blocks.reshape(
-        padded_height,
-        padded_width
+    image = (
+    selected_blocks
+    .reshape(blocks_per_column, blocks_per_row, bh, bw)
+    .swapaxes(1, 2)
+    .reshape(padded_height, padded_width)
     )
 
     return np.clip(image, 0, 255).astype(np.uint8)
