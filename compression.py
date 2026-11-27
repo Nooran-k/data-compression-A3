@@ -50,11 +50,17 @@ def compress_image(image_path, block_size, codebook_size,
 
     save_bits(bits, compressed_path)
 
-    ratio = compression_ratio(result["original_shape"], codebook, len(bits))
+    ratio = compression_ratio(
+        result["original_shape"],
+        codebook,
+        len(bits)
+    )
 
-    print("Codebook saved to:", result["codebook_path"])
-    print("Compressed file saved to:", compressed_path)
-    print("Compression ratio:", round(ratio, 2))
+    return {
+        "codebook_path": result["codebook_path"],
+        "compressed_path": compressed_path,
+        "compression_ratio": ratio
+    }
 
 
 if __name__ == "__main__":
